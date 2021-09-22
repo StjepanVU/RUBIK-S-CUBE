@@ -30,7 +30,7 @@ var orangeColor = false;
 var whiteColor = false;
 
 var counter;
-
+let kociembaString = [];
 
 //RESET -- Checked
 function reset(){
@@ -44,9 +44,8 @@ function reset(){
     }
 
     counter = 0;
- 
+    kociembaString = [];
 }
-
 
 
 // PICKED BUTTON -- Checked
@@ -168,6 +167,7 @@ function pickedButton(color,click){
 
 }
 
+
 // BOOL VALUE OF A COLOR -- Checked
 function boolValue(color){
     
@@ -277,14 +277,16 @@ function main(){
     // Save button clicked
     save_a.addEventListener('click', () =>{
         console.log("Save");
-        //generateString();
+        //generatedArray = true;
+        getString();
     })
-
+    // Upload button clicked
     upload_a.addEventListener('click', () => {
         console.log("Upload");
+        /*if(generetadArray) */
         //sendString();
     })
-
+    // Reset button clicked
     resetButton_btn.addEventListener('click', () =>{
         reset();
     })
@@ -304,6 +306,7 @@ function handler(btnId){
    
     
 }
+
 
 // COLOR BUTTONS -- Checked
 function colorButton(pressedButton){
@@ -376,18 +379,55 @@ function hoverSidebar(icon){
 }
 
 
+// GET STRING 
+function getString(){
 
+    for(var i=0;i<cubeButtons_btn.length;i++){
+       //console.log(i); 
+       let bgColor = String(window.getComputedStyle(cubeButtons_btn[i]).backgroundColor);
+       console.log(bgColor);
+       
+              
+       if (bgColor === "rgb(255, 255, 0)" ){
+            kociembaString.push("U");
+       }
+       else if (bgColor === "rgb(255, 255, 255)"){
+            kociembaString.push("D");
+       } 
+       else if (bgColor === "rgb(255, 0, 0)"){
+            kociembaString.push("F");
+       }
+       else if (bgColor === "rgb(0, 0, 255)"){
+            kociembaString.push("L");
+       }
+       else if (bgColor === "rgb(4, 253, 4)"){
+            kociembaString.push("R");
+       }
+       else if (bgColor === "rgb(255, 165, 0)"){
+            kociembaString.push("B");
+       }
+       
+  
+    }
+
+    // Center cubes
+    /* kociembaString[3].push = 'U';
+    kociembaString[21].push = 'L';
+    kociembaString[23].push = 'F';
+    kociembaString[25].push = 'R';
+    kociembaString[27].push = 'B';
+    kociembaString[44].push = 'D'; */
+
+    
+
+
+    alert("Generirali ste sljedeći string: \n" + kociembaString);
+}
 
 
 
 // Calling the main() function
 main();
-
-
-
-
-
-
 
 
 
@@ -420,7 +460,5 @@ function colorValue(color){
             ...
 } */
 
-function setId(pressedButton){
 
-}
 
