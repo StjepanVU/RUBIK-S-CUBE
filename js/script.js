@@ -42,6 +42,8 @@ function reset(){
         cubeButtons_btn[i].style.border = "1px";
         cubeButtons_btn[i].style.borderStyle = "solid";       
     }
+
+    counter = 0;
  
 }
 
