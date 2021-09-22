@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--Bootstrap plugin-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/1b235fbc4a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/stylesheet.css"></link>
+        <link rel="stylesheet" href="css/cube.css"></link>
+        <title>Rubik's cube</title>
+    </head>
+
+    <body>
+        <div class="container p-5">
+            
+            
+            <div class="row">
+                <!--SIDEBAR-->
+                <div class="col-md-2" id="sidebar-container">
+                    <div class="p-1" id="navigation">
+                        
+                        
+                        <ul>
+                            <li>
+                                <!--CLOSE ICON-->
+                                <a href="#">   
+                                    <span class="close-icon">
+                                        <i class="fas fa-chevron-up" id="close-icon"></i>
+                                    </span>
+                                
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a href="#" id="save-icon">
+                                    <span class="icon">
+                                        <i class="fas fa-save"></i>
+                                    </span>
+                                    <span class="title">Save</span>
+                                </a>
+                            </li>
+                            <br>
+                            <li>
+                                <a href="#" id="upload-icon">
+                                    <span class="icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="title">Upload</span>
+                                </a>
+                            </li>
+                            <br>
+                            <li>
+                                <a href="https://pypi.org/project/kociemba/" target="_blank">
+                                    <span class="icon">
+                                        <i class="fab fa-sourcetree"></i>
+                                    </span>
+                                    <span class="title">Reference</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="logo">
+                                <a href="https://www.rubiks.com/en-us/" target="_blank">
+                                <img src="images/rubiks_cube.png" id="image-logo">
+                                </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!--CUBE CONTAINER-->             
+                <div class="col-lg-8 p-2 border bg-white" id="rubiks-cube-container">
+                    <div class="container p-4" id="rubiks-cube">
+                        
+                        <!--UP-->
+                        
+                        <div class="col p-1 offset-1">
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+
+                            <button id="1" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="2" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="3" onclick="handler(this.id)" class="cube-buttons"></button>
+
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                                                        
+                            
+                            
+
+                        </div>
+                        <div class="col p-1 offset-1">
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+
+                            <button id="4" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button class="center-up" id="center-up"></button>
+                            <button id="5" onclick="handler(this.id)" class="cube-buttons"></button>
+
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            
+                            
+
+                        </div>
+                        <div class="col p-1 offset-1">
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+
+                            <button id="6" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="7" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="8" onclick="handler(this.id)" class="cube-buttons"></button>
+
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            
+                            
+
+                        </div>
+
+
+
+
+
+                        <!--MIDDLE-->
+
+                        <div class="col p-1 offset-1">
+                            <button id="9" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="10" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="11" onclick="handler(this.id)" class="cube-buttons"></button>
+
+                            <button id="12" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="13" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="14" onclick="handler(this.id)" class="cube-buttons"></button>
+                                                        
+                            <button id="15" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="16" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="17" onclick="handler(this.id)" class="cube-buttons"></button>
+                            
+                            <button id="18" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="19" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="20" onclick="handler(this.id)" class="cube-buttons"></button>
+                        </div>
+                        <div class="col p-1 offset-1">
+                            <button id="21" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button class="center-left" id="center-left"></button>
+                            <button id="22" onclick="handler(this.id)" class="cube-buttons"></button>
+                            
+                            <button id="23" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button class="center-forward" id="center-forward"></button>
+                            <button id="24" onclick="handler(this.id)" class="cube-buttons"></button>
+                            
+                            <button id="25" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button class="center-right" id="center-right"></button>
+                            <button id="26" onclick="handler(this.id)" class="cube-buttons"></button>
+                            
+                            <button id="27" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button class="center-back" id="center-back"></button>
+                            <button id="28" onclick="handler(this.id)" class="cube-buttons"></button>
+                        </div>
+                        <div class="col p-1 offset-1">
+                            <button id="29" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="30" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="31" onclick="handler(this.id)" class="cube-buttons"></button>
+                            
+                            <button id="32" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="33" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="34" onclick="handler(this.id)" class="cube-buttons"></button>
+                            
+                            <button id="35" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="36" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="37" onclick="handler(this.id)" class="cube-buttons"></button>
+                            
+                            <button id="38" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="39" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="40" onclick="handler(this.id)" class="cube-buttons"></button>
+                        </div>
+
+                        
+                        
+                        
+                        <div class="col p-1 offset-1">
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+
+                            <button id="41" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="42" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="43" onclick="handler(this.id)" class="cube-buttons"></button>
+
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                                                        
+                        
+                        
+                        <!--DOWN-->    
+                            
+                        </div>
+                        <div class="col p-1 offset-1">
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+
+                            <button id="44" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button class="center-down" id="center-down"></button>
+                            <button id="45" onclick="handler(this.id)" class="cube-buttons"></button>
+
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            
+                            
+
+                        </div>
+                        <div class="col p-1 offset-1">
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+
+                            <button id="46" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="47" onclick="handler(this.id)" class="cube-buttons"></button>
+                            <button id="48" onclick="handler(this.id)" class="cube-buttons"></button>
+
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            <button class="dummy-buttons"></button>
+                            
+                            
+
+                        </div>
+
+                    
+                        
+
+
+
+                                
+
+
+
+                    </div>
+                </div>
+                
+                
+                
+                
+                <!--COLOR PICKER-->
+                <div class="col-md-2 p-4 border bg-light" id="color-picker">
+                    <li id="btns"><button class="color-buttons" id="button-red"></button><p id="paragraph-buttons"> Red</p></li>
+                    <li id="btns"><button class="color-buttons" id="button-blue"></button><p id="paragraph-buttons"> Blue</p></li>
+                    <li id="btns"><button class="color-buttons" id="button-green"></button><p id="paragraph-buttons"> Green</p></li>
+                    <li id="btns"><button class="color-buttons" id="button-yellow"></button><p id="paragraph-buttons"> Yellow</p></li>
+                    <li id="btns"><button class="color-buttons" id="button-orange"></button><p id="paragraph-buttons"> Orange</p></li>
+                    <li id="btns"><button class="color-buttons" id="button-white"></button><p id="paragraph-buttons"> White</p></li>
+                    
+                    
+                    <div class="col" id="reset-button-container">
+                        <button id="reset-button">RESET</button>
+                    </div>
+                </div>
+                
+           
+           
+           
+            </div> 
+
+        </div>
+        
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+
+       
+        <!--Bootstrap plugin-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous"></script>
+        <script src="js/script.js" charset="utf-8"></script>
+        
+    </body>
+</html>
+
+
+
+
+                <!--       
+                <div class="col-md-2">
+                    <div class="p-2 border" id="sidebar">Sidebar</div>
+                </div>
+                -->
+
+
+
+                <!--
+                <div class="col-md-8">
+                    <div class="p-2 bg-light border" id="rubiks-cube">Rubiks cube</div>
+                    
+                </div>
+                
+
+
+                <div class="col-md-2 p-2 border bg-light" id="color-picker">Color picker</div>
+                -->
+                <!--
+                <div class="col-md-2">
+                    <div class="p-2 bg-light border" id="color-picker">Color-picker</div>
+                </div>
+                -->
