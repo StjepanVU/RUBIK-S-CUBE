@@ -297,7 +297,7 @@ function main(){
 // BUTTON HANDLER -- Checked
 function handler(btnId){
     
-   //console.log(btnId);
+   console.log(parseInt(btnId));
    //console.log(parseInt(cubeButtons_btn[btnId-1].id));
    var pressedButton = cubeButtons_btn[btnId-1];
    colorButton(pressedButton); 
