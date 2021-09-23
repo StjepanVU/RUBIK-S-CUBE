@@ -17,6 +17,13 @@ const resetButton_btn = document.getElementById("reset-button");
 
 // Cube buttons
 const cubeButtons_btn = document.querySelectorAll(".cube-buttons");
+const cubeButtons_kociembaSort = document.querySelectorAll(".kociemba-sort");
+const cubeButtons_U = document.querySelectorAll(".U");
+const cubeButtons_F = document.querySelectorAll(".F");
+const cubeButtons_D = document.querySelectorAll(".D");
+const cubeButtons_L = document.querySelectorAll(".L");
+const cubeButtons_R = document.querySelectorAll(".R");
+const cubeButtons_B = document.querySelectorAll(".B");
 
 
 
@@ -30,7 +37,8 @@ var orangeColor = false;
 var whiteColor = false;
 
 var counter;
-let kociembaString = [];
+let kociembaString = "";
+var generatedString = false;
 
 //RESET -- Checked
 function reset(){
@@ -269,23 +277,25 @@ function main(){
     upArrow_span.addEventListener('click', () => {
         console.log("Down arrow");
         const icon = document.getElementById("close-icon");
-        hoverSidebar(icon);
-
-               
+        hoverSidebar(icon);           
     })
 
     // Save button clicked
     save_a.addEventListener('click', () =>{
-        console.log("Save");
-        //generatedArray = true;
-        getString();
+        getString();  
     })
+
     // Upload button clicked
     upload_a.addEventListener('click', () => {
         console.log("Upload");
-        /*if(generetadArray) */
+        if(generatedString){
         //sendString();
+        }
+        else{
+            alert("Kociemba string nije generiran!");
+        }
     })
+
     // Reset button clicked
     resetButton_btn.addEventListener('click', () =>{
         reset();
@@ -302,9 +312,7 @@ function handler(btnId){
    console.log(parseInt(btnId));
    //console.log(parseInt(cubeButtons_btn[btnId-1].id));
    var pressedButton = cubeButtons_btn[btnId-1];
-   colorButton(pressedButton); 
-   
-    
+   colorButton(pressedButton);
 }
 
 
@@ -362,7 +370,6 @@ function colorButton(pressedButton){
 
 }
 
-
 // HOVER SIDEBAR -- Checked
 function hoverSidebar(icon){
     
@@ -378,51 +385,152 @@ function hoverSidebar(icon){
     }
 }
 
-
-// GET STRING 
-function getString(){
-
-    for(var i=0;i<cubeButtons_btn.length;i++){
-       //console.log(i); 
-       let bgColor = String(window.getComputedStyle(cubeButtons_btn[i]).backgroundColor);
-       console.log(bgColor);
-       
-              
-       if (bgColor === "rgb(255, 255, 0)" ){
-            kociembaString.push("U");
-       }
-       else if (bgColor === "rgb(255, 255, 255)"){
-            kociembaString.push("D");
-       } 
-       else if (bgColor === "rgb(255, 0, 0)"){
-            kociembaString.push("F");
-       }
-       else if (bgColor === "rgb(0, 0, 255)"){
-            kociembaString.push("L");
-       }
-       else if (bgColor === "rgb(4, 253, 4)"){
-            kociembaString.push("R");
-       }
-       else if (bgColor === "rgb(255, 165, 0)"){
-            kociembaString.push("B");
-       }
-       
-  
+// Change ID -- Checked
+function changeId(){
+    
+    for(var i=0;i<9;i++){
+        // U class
+        
+        cubeButtons_U[i].id = String(i);
+        console.log("U" + cubeButtons_U[i].id);
+        
     }
+    
 
-    // Center cubes
-    /* kociembaString[3].push = 'U';
-    kociembaString[21].push = 'L';
-    kociembaString[23].push = 'F';
-    kociembaString[25].push = 'R';
-    kociembaString[27].push = 'B';
-    kociembaString[44].push = 'D'; */
+    for(var i=0;i<9;i++){
+        // R class
+        
+        cubeButtons_R[i].id = String(9+i);
+        console.log("R" + cubeButtons_R[i].id);
+        
+    }
+    
 
+    for(var i=0;i<9;i++){
+        // F class
+        //console.log(cubeButtons_U[i].id) = String(i);
+        cubeButtons_F[i].id = String(18+i);
+        console.log("R" + cubeButtons_F[i].id);
+        
+    }
+    
+
+    for(var i=0;i<9;i++){
+        // D class
+        //console.log(cubeButtons_U[i].id) = String(i);
+        cubeButtons_D[i].id = String(27+i);
+        
+    }
     
 
 
-    alert("Generirali ste sljedeći string: \n" + kociembaString);
+    for(var i=0;i<9;i++){
+        // L class
+        //console.log(cubeButtons_U[i].id) = String(i);
+        cubeButtons_L[i].id = String(36+i);
+        
+    }
+    
+
+
+    for(var i=0;i<9;i++){
+        // B class
+        //console.log(cubeButtons_U[i].id) = String(i);
+        cubeButtons_B[i].id = String(45+i);
+        
+    }
+    
 }
+
+// Set string values -- Checked
+function setStringValues(bgColor){
+    
+    if (bgColor === "rgb(255, 255, 0)"){
+        kociembaString+= "U";
+    }
+    else if (bgColor === "rgb(0, 0, 255)"){
+        //kociembaString.push('F');
+        kociembaString+= "F";
+    }
+    else if (bgColor === "rgb(255, 165, 0)"){
+        //kociembaString.push('L');
+        kociembaString+= "L";
+    }
+    else if (bgColor === "rgb(255, 0, 0)"){
+        //kociembaString.push('R');
+        kociembaString+= "R";
+    }
+    else if (bgColor === "rgb(4, 253, 4)"){
+        //kociembaString.push('B');
+        kociembaString+= "B";
+    }
+    else{
+        //kociembaString.push('D');
+        kociembaString+= "D";
+    }
+
+    
+}
+
+// GET STRING 
+function getString(){
+      
+    changeId();
+    
+    for(var i=0;i<cubeButtons_U.length;i++){
+        if(i == 4){kociembaString+="U";}
+        else{
+        let bgColor = String(window.getComputedStyle(cubeButtons_U[i]).backgroundColor);
+        setStringValues(bgColor);
+        } 
+    }
+    for(var i=0;i<cubeButtons_R.length;i++){
+        if(i == 4){kociembaString+="R";}
+        else{
+        let bgColor = String(window.getComputedStyle(cubeButtons_R[i]).backgroundColor);
+        setStringValues(bgColor); 
+        }
+    }
+     for(var i=0;i<cubeButtons_F.length;i++){
+        if(i == 4){kociembaString+="F";}
+        else{
+        let bgColor = String(window.getComputedStyle(cubeButtons_F[i]).backgroundColor);
+        setStringValues(bgColor); 
+        }
+    }
+     for(var i=0;i<cubeButtons_D.length;i++){
+        if(i == 4){kociembaString+="D";}
+        else{
+        let bgColor = String(window.getComputedStyle(cubeButtons_D[i]).backgroundColor);
+        setStringValues(bgColor); 
+        }
+    }
+     for(var i=0;i<cubeButtons_L.length;i++){
+        if(i == 4){kociembaString+="L";}
+        else{
+        let bgColor = String(window.getComputedStyle(cubeButtons_L[i]).backgroundColor);
+        setStringValues(bgColor); 
+        }
+    }
+     for(var i=0;i<cubeButtons_B.length;i++){
+        if(i == 4){kociembaString+="B";}
+        else{
+        let bgColor = String(window.getComputedStyle(cubeButtons_B[i]).backgroundColor);
+        setStringValues(bgColor); 
+        }
+    }
+
+
+
+    alert(kociembaString);
+    generatedString = true;
+
+    
+    
+}
+
+
+
 
 
 
@@ -435,30 +543,7 @@ main();
 
 
 
-////////////////////////////////
-/*------Dummy functions-------*/
-////////////////////////////////
 
-// CUBE BUTTONS
- /* 
-cubeButtons_btn.forEach(el => el.addEventListener('click', () =>{
-        handler();        
-})) */
-// BOOLEAN
-/*
-function colorValue(color){ 
-    switch(color){
-        case "red":
-            var redColor = true;
-            var blueColor = false;
-            var greenColor = false;
-            var yellowColor = false;
-            var orangeColor = false;
-            var whiteColor = false;
-            break;
-
-            ...
-} */
 
 
 
