@@ -282,14 +282,15 @@ function main(){
 
     // Save button clicked
     save_a.addEventListener('click', () =>{
-        getString();  
+        getString(); 
+        
     })
 
     // Upload button clicked
     upload_a.addEventListener('click', () => {
         console.log("Upload");
         if(generatedString){
-        //sendString();
+        sendString();
         }
         else{
             alert("Kociemba string nije generiran!");
@@ -472,7 +473,7 @@ function setStringValues(bgColor){
     
 }
 
-// GET STRING 
+// GET STRING  -- Checked
 function getString(){
       
     changeId();
@@ -523,6 +524,7 @@ function getString(){
 
 
     alert(kociembaString);
+    console.log(kociembaString);
     generatedString = true;
 
     
@@ -530,6 +532,20 @@ function getString(){
 }
 
 
+function sendString(){
+    $(function(){
+    data = {"key": kociembaString}
+    $.ajax({
+        type: "POST",
+        url:"http://192.168.1.140:3000/Rubiks" ,
+        data: data,
+        success: function(data){
+            console.log("Successfull" + data);
+        },
+        dataType: "JSON"
+      });
+    });
+}
 
 
 
