@@ -531,7 +531,7 @@ function getString(){
     
 }
 
-
+// Send string to server -- Checked
 function sendString(){
     $(function(){
     data = {"key": kociembaString}
